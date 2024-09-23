@@ -1,8 +1,8 @@
 import { User } from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import cloudinary from "../utils/cloudinary.js";
 import getDataUri from "../utils/datauri.js";
+import cloudinary from "../utils/cloudinary.js";
 
 export const register = async (req, res) => {
     try {
@@ -46,8 +46,6 @@ export const register = async (req, res) => {
         console.log(error);
     }
 }
-
-
 export const login = async (req, res) => {
     try {
         const { email, password, role } = req.body;
@@ -103,8 +101,6 @@ export const login = async (req, res) => {
         console.log(error);
     }
 }
-
-
 export const logout = async (req, res) => {
     try {
         return res.status(200).cookie("token", "", { maxAge: 0 }).json({
@@ -115,8 +111,6 @@ export const logout = async (req, res) => {
         console.log(error);
     }
 }
-
-
 export const updateProfile = async (req, res) => {
     try {
         const { fullname, email, phoneNumber, bio, skills } = req.body;
